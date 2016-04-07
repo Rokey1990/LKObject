@@ -10,6 +10,6 @@
 
 @interface NSDictionary(JsonString)
 
--(NSString *)jsonString;
+@property (readonly) NSString *jsonString;
 
 @end

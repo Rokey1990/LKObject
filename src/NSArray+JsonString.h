@@ -17,6 +17,6 @@
 ///初始化一个对象数组，参数同时兼容jsonString 及NSArray
 + (instancetype)arrayWithJsonItem:(id)jsonItem objectClassName:(NSString *)className;
 ///数组的json字符串表示
--(NSString *)jsonString;
+@property (readonly) NSString *jsonString;
 
 @end

@@ -12,11 +12,15 @@
 
 @property (nonatomic,strong,readonly) NSArray *objectArray;
 
+@property (nonatomic,strong,readonly) NSArray *descriptionArray;
+
 @end
 
 
 @interface NSDictionary(LKObject)
 
 @property (nonatomic,strong,readonly) NSDictionary *objectDictionary;
+
+@property (nonatomic,strong,readonly) NSDictionary *descriptionDictionary;
 
 @end

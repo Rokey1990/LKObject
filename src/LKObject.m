@@ -8,7 +8,7 @@
 
 #import "LKObject.h"
 #import <objc/runtime.h>
-
+#import "LKObject+Categories.h"
 
 @implementation LKObject
 
@@ -16,9 +16,42 @@
     return nil;
 }
 
+#ifdef DEBUG
+#if DEBUG
+- (void)validateParserDicionay{
+    NSLog(@"hello,kitty");
+    NSDictionary *parserDictionary = [[self class] parserDictionary];
+    NSArray *parserKeys = parserDictionary.allKeys;
+    for (NSString *key in parserKeys) {
+        NSAssert(class_getProperty([self class], key.UTF8String), @"LKObject Error:The Key-Value: %@,%@ cannot find any corresponding property in class: %@",key,parserDictionary[key],[self class]);
+
+    }
+}
+#endif
+#endif
+
+- (NSMutableDictionary *)normalParserDictionary{
+    NSMutableDictionary *parserDictionary = [[NSMutableDictionary alloc] init];
+    unsigned int count = 0;
+    objc_property_t *properties = class_copyPropertyList([self class], &count);
+    for (int i = 0; i < count; i++) {
+        NSString *propertyName = [NSString stringWithUTF8String:property_getName(properties[i])];
+        [parserDictionary setObject:propertyName forKey:propertyName];
+    }
+    return parserDictionary;
+}
+
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary{
     if (self = [super init]) {
+#ifdef DEBUG
+#if DEBUG == 1
+        [self validateParserDicionay];
+#endif
+#endif
         NSMutableDictionary *parserDict = [[NSMutableDictionary alloc] initWithDictionary:[[self class] parserDictionary]];
+        if (parserDict.allKeys.count == 0) {
+            parserDict = [self normalParserDictionary];
+        }
         for (NSString *key in [parserDict allKeys]) {
             
             id valueKey = parserDict[key];
@@ -94,6 +127,9 @@
     
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     NSDictionary *parserDict = [[self class] parserDictionary];
+    if (!parserDict) {
+        parserDict = [self normalParserDictionary];
+    }
     
     NSString *valueType = nil;
     for (NSString *key in parserDict) {
@@ -109,19 +145,6 @@
                 [dictionary setValue:[[value objectDictionary] jsonString] forKey:valueKey];
             }
             else if ([value isKindOfClass:[NSArray class]]){//反解析数组
-                
-//                NSMutableArray *arrary = [[NSMutableArray alloc] init];
-//                for (id object in value) {
-//                    if ([object isKindOfClass:[LKObject class]]) {//将LKObject类型变量转为字典类型
-//                        [arrary addObject:[[object objectDictionary] jsonString]];
-//                    }
-//                    else{
-//                        [arrary addObject:object];
-//                    }
-//                    
-//                }
-                
-                
                 [dictionary setValue:[value jsonString] forKey:valueKey];
             }
             else{
@@ -131,6 +154,45 @@
     }
     
     return dictionary;
+}
+
+- (NSDictionary *)descriptionDictionary{
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    NSDictionary *parserDict = [[self class] parserDictionary];
+    if (!parserDict) {
+        parserDict = [self normalParserDictionary];
+    }
+    
+    NSString *valueType = nil;
+    for (NSString *key in parserDict) {
+        
+        id valueKey = parserDict[key];//与服务端对应的key
+        if ([valueKey isKindOfClass:[NSArray class]]) {
+            valueType = [valueKey objectAtIndex:1];
+            valueKey = [valueKey objectAtIndex:0];
+        }
+        id value = [self valueForKey:key];
+        if (value) {
+            if ([value isKindOfClass:[LKObject class]]) {//将LKObject类型变量转为字典类型
+                [dictionary setValue:[value descriptionDictionary] forKey:valueKey];
+            }
+            else if ([value isKindOfClass:[NSArray class]]){//反解析数组
+                [dictionary setValue:[value descriptionArray] forKey:valueKey];
+            }
+            else if ([value isKindOfClass:[NSDictionary class]]){
+                [dictionary setValue:[value descriptionDictionary] forKey:valueKey];
+            }
+            else{
+                [dictionary setValue:value forKey:valueKey];
+            }
+        }
+    }
+    
+    return dictionary;
+}
+
+- (void)testMethods{
+    NSLog(@"testMethods");
 }
 
 

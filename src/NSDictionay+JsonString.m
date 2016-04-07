@@ -19,10 +19,10 @@
             value = [[value objectDictionary] jsonString];
         }
         if ([key isEqual:[keys lastObject]]) {
-            [jsonString appendFormat:@"\"%@\":\"%@\"",key,self[key]];
+            [jsonString appendFormat:@"\"%@\":\"%@\"",key,[self[key] jsonString]];
         }
         else{
-            [jsonString appendFormat:@"\"%@\":\"%@\",",key,self[key]];
+            [jsonString appendFormat:@"\"%@\":\"%@\",",key,[self[key] jsonString]];
         }
     }
     [jsonString appendString:@"}"];

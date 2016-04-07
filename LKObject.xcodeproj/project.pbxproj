@@ -15,6 +15,15 @@
 		212C105A1CB4DC9800BB9DC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212C10581CB4DC9800BB9DC6 /* LaunchScreen.storyboard */; };
 		212C10651CB4DC9800BB9DC6 /* LKObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 212C10641CB4DC9800BB9DC6 /* LKObjectTests.m */; };
 		212C10701CB4DC9900BB9DC6 /* LKObjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 212C106F1CB4DC9900BB9DC6 /* LKObjectUITests.m */; };
+		218CC4F01CB4DE58000ACC67 /* LKObject+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CC4E91CB4DE58000ACC67 /* LKObject+Categories.m */; };
+		218CC4F11CB4DE58000ACC67 /* LKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CC4EB1CB4DE58000ACC67 /* LKObject.m */; };
+		218CC4F21CB4DE58000ACC67 /* NSArray+JsonString.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CC4ED1CB4DE58000ACC67 /* NSArray+JsonString.m */; };
+		218CC4F31CB4DE58000ACC67 /* NSDictionay+JsonString.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CC4EF1CB4DE58000ACC67 /* NSDictionay+JsonString.m */; };
+		218CC4F61CB50163000ACC67 /* NSString+JsonString.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CC4F51CB50163000ACC67 /* NSString+JsonString.m */; };
+		2192C4C31CB60878007FF663 /* TestObject1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2192C4C21CB60878007FF663 /* TestObject1.m */; };
+		2192C4C61CB60885007FF663 /* TestObject2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2192C4C51CB60885007FF663 /* TestObject2.m */; };
+		2192C4C91CB60891007FF663 /* TestObject3.m in Sources */ = {isa = PBXBuildFile; fileRef = 2192C4C81CB60891007FF663 /* TestObject3.m */; };
+		2192C4CC1CB6089D007FF663 /* TestObject4.m in Sources */ = {isa = PBXBuildFile; fileRef = 2192C4CB1CB6089D007FF663 /* TestObject4.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +60,24 @@
 		212C106B1CB4DC9800BB9DC6 /* LKObjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LKObjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		212C106F1CB4DC9900BB9DC6 /* LKObjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LKObjectUITests.m; sourceTree = "<group>"; };
 		212C10711CB4DC9900BB9DC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		218CC4E81CB4DE58000ACC67 /* LKObject+Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LKObject+Categories.h"; sourceTree = "<group>"; };
+		218CC4E91CB4DE58000ACC67 /* LKObject+Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LKObject+Categories.m"; sourceTree = "<group>"; };
+		218CC4EA1CB4DE58000ACC67 /* LKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKObject.h; sourceTree = "<group>"; };
+		218CC4EB1CB4DE58000ACC67 /* LKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKObject.m; sourceTree = "<group>"; };
+		218CC4EC1CB4DE58000ACC67 /* NSArray+JsonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JsonString.h"; sourceTree = "<group>"; };
+		218CC4ED1CB4DE58000ACC67 /* NSArray+JsonString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JsonString.m"; sourceTree = "<group>"; };
+		218CC4EE1CB4DE58000ACC67 /* NSDictionay+JsonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionay+JsonString.h"; sourceTree = "<group>"; };
+		218CC4EF1CB4DE58000ACC67 /* NSDictionay+JsonString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionay+JsonString.m"; sourceTree = "<group>"; };
+		218CC4F41CB50163000ACC67 /* NSString+JsonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JsonString.h"; sourceTree = "<group>"; };
+		218CC4F51CB50163000ACC67 /* NSString+JsonString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JsonString.m"; sourceTree = "<group>"; };
+		2192C4C11CB60878007FF663 /* TestObject1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject1.h; sourceTree = "<group>"; };
+		2192C4C21CB60878007FF663 /* TestObject1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject1.m; sourceTree = "<group>"; };
+		2192C4C41CB60885007FF663 /* TestObject2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject2.h; sourceTree = "<group>"; };
+		2192C4C51CB60885007FF663 /* TestObject2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject2.m; sourceTree = "<group>"; };
+		2192C4C71CB60891007FF663 /* TestObject3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject3.h; sourceTree = "<group>"; };
+		2192C4C81CB60891007FF663 /* TestObject3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject3.m; sourceTree = "<group>"; };
+		2192C4CA1CB6089D007FF663 /* TestObject4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject4.h; sourceTree = "<group>"; };
+		2192C4CB1CB6089D007FF663 /* TestObject4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject4.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +108,7 @@
 		212C103E1CB4DC9800BB9DC6 = {
 			isa = PBXGroup;
 			children = (
+				218CC4E71CB4DE58000ACC67 /* src */,
 				212C10491CB4DC9800BB9DC6 /* LKObject */,
 				212C10631CB4DC9800BB9DC6 /* LKObjectTests */,
 				212C106E1CB4DC9900BB9DC6 /* LKObjectUITests */,
@@ -105,6 +133,14 @@
 				212C104E1CB4DC9800BB9DC6 /* AppDelegate.m */,
 				212C10501CB4DC9800BB9DC6 /* ViewController.h */,
 				212C10511CB4DC9800BB9DC6 /* ViewController.m */,
+				2192C4C11CB60878007FF663 /* TestObject1.h */,
+				2192C4C21CB60878007FF663 /* TestObject1.m */,
+				2192C4C41CB60885007FF663 /* TestObject2.h */,
+				2192C4C51CB60885007FF663 /* TestObject2.m */,
+				2192C4C71CB60891007FF663 /* TestObject3.h */,
+				2192C4C81CB60891007FF663 /* TestObject3.m */,
+				2192C4CA1CB6089D007FF663 /* TestObject4.h */,
+				2192C4CB1CB6089D007FF663 /* TestObject4.m */,
 				212C10531CB4DC9800BB9DC6 /* Main.storyboard */,
 				212C10561CB4DC9800BB9DC6 /* Assets.xcassets */,
 				212C10581CB4DC9800BB9DC6 /* LaunchScreen.storyboard */,
@@ -138,6 +174,23 @@
 				212C10711CB4DC9900BB9DC6 /* Info.plist */,
 			);
 			path = LKObjectUITests;
+			sourceTree = "<group>";
+		};
+		218CC4E71CB4DE58000ACC67 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				218CC4E81CB4DE58000ACC67 /* LKObject+Categories.h */,
+				218CC4E91CB4DE58000ACC67 /* LKObject+Categories.m */,
+				218CC4EA1CB4DE58000ACC67 /* LKObject.h */,
+				218CC4EB1CB4DE58000ACC67 /* LKObject.m */,
+				218CC4EC1CB4DE58000ACC67 /* NSArray+JsonString.h */,
+				218CC4ED1CB4DE58000ACC67 /* NSArray+JsonString.m */,
+				218CC4EE1CB4DE58000ACC67 /* NSDictionay+JsonString.h */,
+				218CC4EF1CB4DE58000ACC67 /* NSDictionay+JsonString.m */,
+				218CC4F41CB50163000ACC67 /* NSString+JsonString.h */,
+				218CC4F51CB50163000ACC67 /* NSString+JsonString.m */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +325,16 @@
 			files = (
 				212C10521CB4DC9800BB9DC6 /* ViewController.m in Sources */,
 				212C104F1CB4DC9800BB9DC6 /* AppDelegate.m in Sources */,
+				218CC4F11CB4DE58000ACC67 /* LKObject.m in Sources */,
+				218CC4F31CB4DE58000ACC67 /* NSDictionay+JsonString.m in Sources */,
+				218CC4F61CB50163000ACC67 /* NSString+JsonString.m in Sources */,
+				2192C4C31CB60878007FF663 /* TestObject1.m in Sources */,
+				218CC4F21CB4DE58000ACC67 /* NSArray+JsonString.m in Sources */,
+				2192C4C61CB60885007FF663 /* TestObject2.m in Sources */,
 				212C104C1CB4DC9800BB9DC6 /* main.m in Sources */,
+				218CC4F01CB4DE58000ACC67 /* LKObject+Categories.m in Sources */,
+				2192C4C91CB60891007FF663 /* TestObject3.m in Sources */,
+				2192C4CC1CB6089D007FF663 /* TestObject4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = LKObject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anjubao.LKObject;
@@ -496,6 +559,7 @@
 				212C10761CB4DC9900BB9DC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		212C10771CB4DC9900BB9DC6 /* Build configuration list for PBXNativeTarget "LKObjectTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +568,7 @@
 				212C10791CB4DC9900BB9DC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		212C107A1CB4DC9900BB9DC6 /* Build configuration list for PBXNativeTarget "LKObjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +577,7 @@
 				212C107C1CB4DC9900BB9DC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

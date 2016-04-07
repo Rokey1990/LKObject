@@ -8,6 +8,7 @@
 
 #import "NSArray+JsonString.h"
 #import "NSDictionay+JsonString.h"
+#import "NSString+JsonString.h"
 
 @implementation NSArray(JsonString)
 
