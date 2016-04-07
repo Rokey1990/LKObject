@@ -9,25 +9,7 @@
 #import "ViewController.h"
 #import "LKObject.h"
 
-@interface TestObject : LKObject
-
-@property (nonatomic,strong) NSString *testString;
-@property (nonatomic,assign) int testInt;
-@property (nonatomic,assign) float testFloat;
-
-@end
-
-@implementation TestObject
-
-//+ (NSDictionary *)parserDictionary{
-//    return @{
-//             @"testString":@"testString",
-//             @"testInt":@"testInt",
-//             @"testFloat":@"testFloat",
-//             };
-//}
-
-@end
+#import "TestObject2.h"
 
 @interface ViewController ()
 
@@ -39,14 +21,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    TestObject *test = [[TestObject alloc] initWithDictionary:@{
-                                                                @"testString":@"hello,kitty",
-                                                                @"testInt":@"20",
-                                                                @"testFloat":@"11.1",
-                                                                @"testDouble":@"20.1"
+    TestObject2 *test = [[TestObject2 alloc] initWithDictionary:@{
+                                                                @"testName":@"hello,kitty",
+                                                                @"object1":@{@"testName":@"name",
+                                                                             @"testString":@"string",
+                                                                             @"testInt":@"100",
+                                                                             @"testFloat":@"20.1",
+                                                                             @"testObject3":@{@"name":@"testName"}
+                                                                             },
+                                                                @"testArray":@[@"hello",@"kitty",@"ni",@"hao"],
+                                                                @"testArray2":@[@{@"name":@"testName"},@{@"name":@"testName"}]
                                                                 }];
-    NSLog(@"%@",test.objectDictionary);
-    
+    NSLog(@"%@",test.descriptionDictionary);
+    [test testMethods];
+    NSLog(@"test reset");
 }
 
 - (void)didReceiveMemoryWarning {

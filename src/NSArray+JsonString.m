@@ -35,12 +35,12 @@
             }
         }
         else{
-            string = item;
+            string = [item jsonString];
             if ([item isEqual:[self lastObject]]) {
-                [jsonString appendFormat:@"\"%@\"",string];
+                [jsonString appendFormat:@"%@",string];
             }
             else{
-                [jsonString appendFormat:@"\"%@\",",string];
+                [jsonString appendFormat:@"%@,",string];
             }
         }
        

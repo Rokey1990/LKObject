@@ -11,7 +11,8 @@
 @implementation NSString(JsonString)
 
 - (NSString *)jsonString{
-    return self;
+    
+    return [NSString stringWithFormat:@"\"%@\"",self];
 }
 
 @end
