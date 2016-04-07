@@ -34,7 +34,7 @@
                                                                 }];
     NSLog(@"%@",test.descriptionDictionary);
     [test testMethods];
-    NSLog(@"test reset");
+
 }
 
 - (void)didReceiveMemoryWarning {
