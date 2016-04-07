@@ -10,4 +10,19 @@
 
 @implementation TestObject2
 
++ (NSDictionary *)parserDictionary{
+    
+    return @{
+             @"testName":@"testName",
+             @"object1":@"object1",
+             @"testArray":@"testArray",
+             @"testArray2":@[@"testArray2",@"TestObject3"]
+             };
+}
+- (instancetype)init{
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
 @end

@@ -87,15 +87,16 @@
                             value = JsonPresentation(value);
                         }
                         if (valueType) {
-                            NSMutableArray *array = [[NSMutableArray alloc] init];
-                            Class itemClass = NSClassFromString(valueType);
-                            
-                            for (id dict in value) {
-                                if ([dict isKindOfClass:[NSDictionary class]] && [itemClass isSubclassOfClass:[LKObject class]]) {//判断元素是否属于字典
-                                    id item = [[itemClass alloc] initWithDictionary:dict];
-                                    [array addObject:item];
-                                }
-                            }
+//                            NSMutableArray *array = [[NSMutableArray alloc] init];
+//                            Class itemClass = NSClassFromString(valueType);
+//                            
+//                            for (id dict in value) {
+//                                if ([dict isKindOfClass:[NSDictionary class]] && [itemClass isSubclassOfClass:[LKObject class]]) {//判断元素是否属于字典
+//                                    id item = [[itemClass alloc] initWithDictionary:dict];
+//                                    [array addObject:item];
+//                                }
+//                            }
+                            NSArray *array = [NSArray arrayWithArray:value objectClassName:valueType];
                             if (array.count>0) {
                                 [parserDict setObject:array forKey:key];
                                 continue;
@@ -193,6 +194,17 @@
 
 - (void)testMethods{
     NSLog(@"testMethods");
+    unsigned int count = 0;
+    objc_property_t *properties = class_copyPropertyList([self class], &count);
+    for (int i = 0; i < count; i++) {
+//        NSLog(@"%s",property_getAttributes(properties[i]));
+        int attrCount = 0;
+        objc_property_attribute_t *attributes = property_copyAttributeList(properties[i], &attrCount);
+        for (int i = 0; i < attrCount; i++) {
+            NSLog(@"%s,%s",attributes[i].name,attributes[i].value);
+            
+        }
+    }
 }
 
 

@@ -38,10 +38,10 @@
             [objectArray addObject:[object descriptionDictionary]];
         }
         else if([object isKindOfClass:[NSDictionary class]]){
-            [object addObject:[object descriptionDictionary]];
+            [objectArray addObject:[object descriptionDictionary]];
         }
         else if ([object isKindOfClass:[NSArray class]]){
-            [object addObject:[object descriptionDictionary]];
+            [objectArray addObject:[object descriptionDictionary]];
         }
         else{
             [objectArray addObject:object];

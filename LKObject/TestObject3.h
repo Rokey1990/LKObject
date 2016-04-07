@@ -10,4 +10,6 @@
 
 @interface TestObject3 : LKObject
 
+@property (strong,nonatomic) NSString *name;
+
 @end

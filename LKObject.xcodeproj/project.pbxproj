@@ -24,6 +24,7 @@
 		2192C4C61CB60885007FF663 /* TestObject2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2192C4C51CB60885007FF663 /* TestObject2.m */; };
 		2192C4C91CB60891007FF663 /* TestObject3.m in Sources */ = {isa = PBXBuildFile; fileRef = 2192C4C81CB60891007FF663 /* TestObject3.m */; };
 		2192C4CC1CB6089D007FF663 /* TestObject4.m in Sources */ = {isa = PBXBuildFile; fileRef = 2192C4CB1CB6089D007FF663 /* TestObject4.m */; };
+		2192C4CF1CB60C40007FF663 /* NSNumber+JsonString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2192C4CE1CB60C40007FF663 /* NSNumber+JsonString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		2192C4C81CB60891007FF663 /* TestObject3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject3.m; sourceTree = "<group>"; };
 		2192C4CA1CB6089D007FF663 /* TestObject4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject4.h; sourceTree = "<group>"; };
 		2192C4CB1CB6089D007FF663 /* TestObject4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject4.m; sourceTree = "<group>"; };
+		2192C4CD1CB60C40007FF663 /* NSNumber+JsonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+JsonString.h"; sourceTree = "<group>"; };
+		2192C4CE1CB60C40007FF663 /* NSNumber+JsonString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+JsonString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,8 @@
 				218CC4EF1CB4DE58000ACC67 /* NSDictionay+JsonString.m */,
 				218CC4F41CB50163000ACC67 /* NSString+JsonString.h */,
 				218CC4F51CB50163000ACC67 /* NSString+JsonString.m */,
+				2192C4CD1CB60C40007FF663 /* NSNumber+JsonString.h */,
+				2192C4CE1CB60C40007FF663 /* NSNumber+JsonString.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				218CC4F61CB50163000ACC67 /* NSString+JsonString.m in Sources */,
 				2192C4C31CB60878007FF663 /* TestObject1.m in Sources */,
 				218CC4F21CB4DE58000ACC67 /* NSArray+JsonString.m in Sources */,
+				2192C4CF1CB60C40007FF663 /* NSNumber+JsonString.m in Sources */,
 				2192C4C61CB60885007FF663 /* TestObject2.m in Sources */,
 				212C104C1CB4DC9800BB9DC6 /* main.m in Sources */,
 				218CC4F01CB4DE58000ACC67 /* LKObject+Categories.m in Sources */,

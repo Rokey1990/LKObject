@@ -7,7 +7,18 @@
 //
 
 #import "LKObject.h"
+#import "TestObject3.h"
 
 @interface TestObject1 : LKObject
+
+@property (strong,nonatomic) NSString *testName;
+
+@property (strong,nonatomic) NSString *testString;
+
+@property (assign,nonatomic) int testInt;
+
+@property (assign,nonatomic) float testFloat;
+
+@property (nonatomic,strong) TestObject3 *testObject3;;
 
 @end
