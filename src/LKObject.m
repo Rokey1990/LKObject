@@ -198,7 +198,7 @@
     objc_property_t *properties = class_copyPropertyList([self class], &count);
     for (int i = 0; i < count; i++) {
 //        NSLog(@"%s",property_getAttributes(properties[i]));
-        int attrCount = 0;
+        unsigned int attrCount = 0;
         objc_property_attribute_t *attributes = property_copyAttributeList(properties[i], &attrCount);
         for (int i = 0; i < attrCount; i++) {
             NSLog(@"%s,%s",attributes[i].name,attributes[i].value);
