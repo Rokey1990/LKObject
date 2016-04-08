@@ -34,18 +34,18 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 /**
- *  根据当前对象的值，构造出于服务端返回数据相同的字典
- *
- *  @return 返回的字典
- */
-- (NSDictionary *) objectDictionary;
-
-/**
  *  根据当前对象的值，构造出展示所有数据内容的字典
  *
  *  @return 描述对象的字典
  */
 - (NSDictionary *) descriptionDictionary;
+
+/**
+ *  将对象转为json字符串(空值属性将会被屏蔽)；
+ *
+ *  @return 对象的json字符串
+ */
+- (NSString *)jsonString;
 
 - (void)testMethods;
 

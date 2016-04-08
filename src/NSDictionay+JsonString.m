@@ -7,23 +7,14 @@
 //
 
 #import "NSDictionay+JsonString.h"
-
+#import "NSString+JsonString.h"
 @implementation NSDictionary(JsonString)
 
 -(NSString *)jsonString{
     NSMutableString *jsonString = [[NSMutableString alloc] initWithString:@"{"];
     NSArray *keys = [self allKeys];
     for (NSString *key in keys) {
-        id value = self[key];
-        if ([value isKindOfClass:[LKObject class]]) {
-            value = [[value objectDictionary] jsonString];
-        }
-        if ([key isEqual:[keys lastObject]]) {
-            [jsonString appendFormat:@"\"%@\":%@",key,[self[key] jsonString]];
-        }
-        else{
-            [jsonString appendFormat:@"\"%@\":%@,",key,[self[key] jsonString]];
-        }
+        [jsonString appendFormat:key==[keys lastObject]?@"%@:%@":@"%@:%@,",key.jsonString,[self[key] jsonString]];
     }
     [jsonString appendString:@"}"];
 

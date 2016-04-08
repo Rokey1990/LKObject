@@ -16,7 +16,7 @@
              @"testName":@"testName",
              @"object1":@"object1",
              @"testArray":@"testArray",
-             @"testArray2":@[@"testArray2",@"TestObject3"]
+             @"testArray2":@[@"testArray2",@"TestObject3"],
              };
 }
 - (instancetype)init{

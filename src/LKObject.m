@@ -17,7 +17,7 @@
 }
 
 #ifdef DEBUG
-#if DEBUG
+#if DEBUG==1
 - (void)validateParserDicionay{
     NSLog(@"hello,kitty");
     NSDictionary *parserDictionary = [[self class] parserDictionary];
@@ -45,7 +45,7 @@
     if (self = [super init]) {
 #ifdef DEBUG
 #if DEBUG == 1
-        [self validateParserDicionay];
+//        [self validateParserDicionay];
 #endif
 #endif
         NSMutableDictionary *parserDict = [[NSMutableDictionary alloc] initWithDictionary:[[self class] parserDictionary]];
@@ -87,15 +87,6 @@
                             value = JsonPresentation(value);
                         }
                         if (valueType) {
-//                            NSMutableArray *array = [[NSMutableArray alloc] init];
-//                            Class itemClass = NSClassFromString(valueType);
-//                            
-//                            for (id dict in value) {
-//                                if ([dict isKindOfClass:[NSDictionary class]] && [itemClass isSubclassOfClass:[LKObject class]]) {//判断元素是否属于字典
-//                                    id item = [[itemClass alloc] initWithDictionary:dict];
-//                                    [array addObject:item];
-//                                }
-//                            }
                             NSArray *array = [NSArray arrayWithArray:value objectClassName:valueType];
                             if (array.count>0) {
                                 [parserDict setObject:array forKey:key];
@@ -122,39 +113,6 @@
        
     }
     return self;
-}
-
--(NSDictionary *)objectDictionary{
-    
-    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    NSDictionary *parserDict = [[self class] parserDictionary];
-    if (!parserDict) {
-        parserDict = [self normalParserDictionary];
-    }
-    
-    NSString *valueType = nil;
-    for (NSString *key in parserDict) {
-    
-        id valueKey = parserDict[key];//与服务端对应的key
-        if ([valueKey isKindOfClass:[NSArray class]]) {
-            valueType = [valueKey objectAtIndex:1];
-            valueKey = [valueKey objectAtIndex:0];
-        }
-        id value = [self valueForKey:key];
-        if (value) {
-            if ([value isKindOfClass:[LKObject class]]) {//将LKObject类型变量转为字典类型
-                [dictionary setValue:[[value objectDictionary] jsonString] forKey:valueKey];
-            }
-            else if ([value isKindOfClass:[NSArray class]]){//反解析数组
-                [dictionary setValue:[value jsonString] forKey:valueKey];
-            }
-            else{
-                [dictionary setValue:value forKey:valueKey];
-            }
-        }
-    }
-    
-    return dictionary;
 }
 
 - (NSDictionary *)descriptionDictionary{
@@ -188,8 +146,38 @@
             }
         }
     }
-    
     return dictionary;
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    fprintf(stderr, "[LKObject Warning] You are setting value for a undefined key(%s) in class %s",key.UTF8String,class_getName([self class]));
+    objc_setAssociatedObject(self, key.UTF8String, value, OBJC_ASSOCIATION_RETAIN);
+}
+- (id)valueForUndefinedKey:(NSString *)key{
+    id value = objc_getAssociatedObject(self, key.UTF8String);
+    if (value) {
+        return value;
+    }
+    
+#ifdef DEBUG
+    #if DEBUG==1
+    NSAssert(NULL, @"Please check the +[%@ parserDictionary] which include the undefined key(%@),if you not use,remove it and try again",[self class],key);
+    return nil;
+    #else
+    fprintf(stderr, "[LKObject Warning] Please check the +[%s parserDictionary] which include the undefined key(%s),if you not use,remove it and try again",class_getName([self class]),key.UTF8String);
+    return nil;
+    #endif
+#else
+    
+    fprintf(stderr, "[LKObject Warning] Please check the +[%s parserDictionary] which include the undefined key(%s),if you not use,remove it and try again",class_getName([self class]),key.UTF8String);
+    return nil;
+#endif
+    
+    
+}
+
+- (NSString *)jsonString{
+    return [self.descriptionDictionary jsonString];
 }
 
 - (void)testMethods{
@@ -204,6 +192,8 @@
             NSLog(@"%s,%s",attributes[i].name,attributes[i].value);
             
         }
+        
+        
     }
 }
 

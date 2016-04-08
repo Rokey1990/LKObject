@@ -9,6 +9,8 @@
 #import "LKObject.h"
 #import "TestObject1.h"
 
+typedef NSArray TestArrayType;
+
 @interface TestObject2 : LKObject
 
 @property (strong,nonatomic) NSString *testName;
@@ -17,7 +19,7 @@
 
 @property (nonatomic,strong) NSArray<NSString *> *testArray;
 
-@property (nonatomic,strong) NSArray<TestObject3 *> *testArray2;
+@property (nonatomic,strong) TestArrayType<TestObject3 *> *testArray2;
 
 
 @end

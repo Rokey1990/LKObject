@@ -33,8 +33,11 @@
                                                                 @"testArray2":@[@{@"name":@"testName"},@{@"name":@"testName"}]
                                                                 }];
     NSLog(@"%@",test.descriptionDictionary);
+    NSString *jsonString = [test.descriptionDictionary jsonString];
+    NSLog(@"%@",jsonString);
+    NSLog(@"%@",JsonPresentation(test.descriptionDictionary.jsonString));
     [test testMethods];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
