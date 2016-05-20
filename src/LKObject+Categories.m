@@ -23,7 +23,7 @@
             [objectArray addObject:[object descriptionDictionary]];
         }
         else if ([object isKindOfClass:[NSArray class]]){
-            [objectArray addObject:[object descriptionDictionary]];
+            [objectArray addObject:[object descriptionArray]];
         }
         else{
             [objectArray addObject:object];
@@ -68,7 +68,7 @@
         return [self arrayWithArray:jsonItem objectClassName:className];
     }
     else{
-        NSLog(@"warning: the params jsonItem is not the xxx object");
+        NSLog(@"warning: the params jsonItem is not the %@ object",[self class]);
         return nil;
     }
 }
