@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "LKObject"
-  s.version      = "0.0.3"
+  s.version      = "1.0.1"
   s.summary      = "An easy way to use modal-to-viewmodal"
   s.homepage     = "http://www.baidu.com"
   s.license      = "MIT"
