@@ -10,6 +10,7 @@
 #import "LKObject.h"
 
 #import "TestObject2.h"
+#import "TestObject4.h"
 
 @interface ViewController ()
 
@@ -36,8 +37,11 @@
     NSString *jsonString = [test.descriptionDictionary jsonString];
     NSLog(@"%@",jsonString);
     NSLog(@"%@",JsonPresentation(test.descriptionDictionary.jsonString));
-    [test testMethods];
     
+    
+    TestObject4 *test4 = [TestObject4 new];
+    [test4 setValuesForKeysWithDictionary:@{@"testString1":@"hello,kitty",@"testArray":@[@{@"name":@"test3_1"},@{@"name":@"test3_2"},@{@"name":@"test3_3"}]} parserDictionary:@{@"testString":@"testString1",@"normalArray":@[@"testArray",@"TestObject3"]}];
+    NSLog(@"%@",test4.descriptionDictionary);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -17,6 +17,7 @@
 
 @property (nonatomic,strong) NSArray *normalArray;
 
+@property (nonatomic,strong) NSString *testString;
 
 
 @end

@@ -25,6 +25,11 @@
 + (NSDictionary *)parserDictionary;
 
 /**
+ *  当前对象所使用的解析字典
+ */
+@property (nonatomic,strong) NSDictionary *parserDictionary;
+
+/**
  *  从服务端接收的数据，解析到对应的类中
  *
  *  @param dictionary 从服务端获取到的数据
@@ -32,6 +37,11 @@
  *  @return 解析后的对象
  */
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+
+
+- (void)setValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)keyedValues
+                      parserDictionary:(NSDictionary *)parser;
 
 /**
  *  根据当前对象的值，构造出展示所有数据内容的字典

@@ -18,17 +18,23 @@
 
 #ifdef DEBUG
 #if DEBUG==1
-- (void)validateParserDicionay{
+- (void)validateParserDicionay:(NSDictionary *)parser{
     NSLog(@"hello,kitty");
-    NSDictionary *parserDictionary = [[self class] parserDictionary];
-    NSArray *parserKeys = parserDictionary.allKeys;
+    NSArray *parserKeys = parser.allKeys;
     for (NSString *key in parserKeys) {
-        NSAssert(class_getProperty([self class], key.UTF8String), @"LKObject Error:The Key-Value: %@,%@ cannot find any corresponding property in class: %@",key,parserDictionary[key],[self class]);
+        id valueKey = parser[key];
+        if ([(NSArray *)valueKey isKindOfClass:[NSArray class]]) {
+            valueKey = [(NSArray *)valueKey objectAtIndex:0];
+        }
+        NSLog(@"LKObject Error:The Key-Value: (%@,%@), cannot find any corresponding property named %@ in class: %@",key,valueKey,key,[self class]);
+        NSAssert(class_getProperty([self class], key.UTF8String), @"");
 
     }
 }
 #endif
 #endif
+
+
 
 - (NSMutableDictionary *)normalParserDictionary{
     NSMutableDictionary *parserDictionary = [[NSMutableDictionary alloc] init];
@@ -41,79 +47,91 @@
     return parserDictionary;
 }
 
+- (NSDictionary *)parserDictionary{
+    if (!_parserDictionary) {
+        if ((_parserDictionary = [[self class] parserDictionary]) == nil) {
+            _parserDictionary = [self normalParserDictionary];
+        }
+    }
+    return _parserDictionary;
+}
+
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary{
     if (self = [super init]) {
-#ifdef DEBUG
-#if DEBUG == 1
-//        [self validateParserDicionay];
-#endif
-#endif
-        NSMutableDictionary *parserDict = [[NSMutableDictionary alloc] initWithDictionary:[[self class] parserDictionary]];
-        if (parserDict.allKeys.count == 0) {
-            parserDict = [self normalParserDictionary];
-        }
-        for (NSString *key in [parserDict allKeys]) {
-            
-            id valueKey = parserDict[key];
-            
-            NSString *valueType = nil;
-            if ([valueKey isKindOfClass:[NSArray class]]) {
-                valueType = [valueKey objectAtIndex:1];
-                valueKey = [valueKey objectAtIndex:0];
-            }
-            id value = dictionary[valueKey];
-            if(value)
-            {
-                Ivar ivar = class_getInstanceVariable([self class], [[@"_" stringByAppendingString:key] UTF8String]);
-                const char *iType = ivar_getTypeEncoding(ivar);
-                
-                if (iType[0] == '@') {
-                    static char typeString[32];
-                    memset(typeString, 0, 32);
-                    char *p = typeString;
-                    for (int i = 0; i<strlen(iType); i++) {
-                        if (iType[i]!='@' && iType[i]!='\"') {
-                            *(p++) = iType[i];
-                        }
-                    }
-                    Class objectClass = NSClassFromString([NSString stringWithUTF8String:typeString]);
-                   
-                    if ([objectClass isSubclassOfClass:[LKObject class]]) { //处理LKObject类型变量，并进行解析
-                        [parserDict setObject:[[objectClass alloc] initWithDictionary:dictionary[valueKey]] forKey:key];
-                        continue;
-                    }
-                    if ([objectClass isSubclassOfClass:[NSArray class]]) { //处理数组
-                        if ([value isKindOfClass:[NSString class]]) {
-                            value = JsonPresentation(value);
-                        }
-                        if (valueType) {
-                            NSArray *array = [NSArray arrayWithArray:value objectClassName:valueType];
-                            if (array.count>0) {
-                                [parserDict setObject:array forKey:key];
-                                continue;
-                            }
-                        }
-                        
-                        [parserDict setObject:value forKey:key];
-                        continue;
-                    }
-                    
-                }
-                
-                ///设置变量值
-                [parserDict setObject:dictionary[valueKey] forKey:key];
-            }
-            else{
-                ///设置变量值为空
-                [parserDict removeObjectForKey:key];
-            }
-            
-        }
-        [self setValuesForKeysWithDictionary:parserDict];
+
+        [self setValuesForKeysWithDictionary:dictionary parserDictionary:self.parserDictionary];
        
     }
     return self;
 }
+
+- (void)setValuesForKeysWithDictionary:(NSDictionary<NSString *,id> *)dictionary parserDictionary:(NSDictionary *)parser{
+    NSMutableDictionary *parserDict = [[NSMutableDictionary alloc] initWithDictionary:parser];
+#ifdef DEBUG
+#if DEBUG == 1
+            [self validateParserDicionay:parser];
+#endif
+#endif
+    for (NSString *key in [parserDict allKeys]) {
+        
+        id valueKey = parserDict[key];
+        
+        NSString *valueType = nil;
+        if ([valueKey isKindOfClass:[NSArray class]]) {
+            valueType = [valueKey objectAtIndex:1];
+            valueKey = [valueKey objectAtIndex:0];
+        }
+        id value = dictionary[valueKey];
+        if(value)
+        {
+            Ivar ivar = class_getInstanceVariable([self class], [[@"_" stringByAppendingString:key] UTF8String]);
+            const char *iType = ivar_getTypeEncoding(ivar);
+            
+            if (iType[0] == '@') {
+                static char typeString[32];
+                memset(typeString, 0, 32);
+                char *p = typeString;
+                for (int i = 0; i<strlen(iType); i++) {
+                    if (iType[i]!='@' && iType[i]!='\"') {
+                        *(p++) = iType[i];
+                    }
+                }
+                Class objectClass = NSClassFromString([NSString stringWithUTF8String:typeString]);
+                
+                if ([objectClass isSubclassOfClass:[LKObject class]]) { //处理LKObject类型变量，并进行解析
+                    [parserDict setObject:[[objectClass alloc] initWithDictionary:dictionary[valueKey]] forKey:key];
+                    continue;
+                }
+                if ([objectClass isSubclassOfClass:[NSArray class]]) { //处理数组
+                    if ([value isKindOfClass:[NSString class]]) {
+                        value = JsonPresentation(value);
+                    }
+                    if (valueType) {
+                        NSArray *array = [NSArray arrayWithArray:value objectClassName:valueType];
+                        if (array.count>0) {
+                            [parserDict setObject:array forKey:key];
+                            continue;
+                        }
+                    }
+                    
+                    [parserDict setObject:value forKey:key];
+                    continue;
+                }
+                
+            }
+            
+            ///设置变量值
+            [parserDict setObject:dictionary[valueKey] forKey:key];
+        }
+        else{
+            ///设置变量值为空
+            [parserDict removeObjectForKey:key];
+        }
+        
+    }
+    [self setValuesForKeysWithDictionary:parserDict];
+}
+
 
 - (NSDictionary *)descriptionDictionary{
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
@@ -192,8 +210,6 @@
             NSLog(@"%s,%s",attributes[i].name,attributes[i].value);
             
         }
-        
-        
     }
 }
 
