@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LKObject.h"
 
+#import "TestObject1.h"
 #import "TestObject2.h"
 #import "TestObject4.h"
 
@@ -21,6 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    TestObject3 *object3 = [[TestObject3 alloc] initWithDictionary:@{@"name":@"testName"}];
+    NSLog(@"%@",object3.descriptionDictionary);
+    
+    TestObject1 *object1 = [[TestObject1 alloc] initWithDictionary:@{@"testName":@"name",
+                                                                               @"testString":@"string",
+                                                                               @"testInt":@"100",
+                                                                               @"testFloat":@"20.1",
+                                                                               @"testObject3":@{@"name":@"testName"}
+                                                                               }];
+    NSLog(@"%@",object1.descriptionDictionary);
     
     TestObject2 *test = [[TestObject2 alloc] initWithDictionary:@{
                                                                 @"testName":@"hello,kitty",
