@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
   s.name         = "LKObject"
   s.version      = "1.0.1"
-  s.summary      = "An easy way to use modal-to-viewmodal"
+  s.summary      = "An easy way to use model-to-viewmodel"
   s.homepage     = "http://www.baidu.com"
   s.license      = "MIT"
   s.author             = { "Rokey1990" => "992030970@qq.com" }
