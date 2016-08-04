@@ -15,7 +15,8 @@
 		212C105A1CB4DC9800BB9DC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212C10581CB4DC9800BB9DC6 /* LaunchScreen.storyboard */; };
 		212C10651CB4DC9800BB9DC6 /* LKObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 212C10641CB4DC9800BB9DC6 /* LKObjectTests.m */; };
 		212C10701CB4DC9900BB9DC6 /* LKObjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 212C106F1CB4DC9900BB9DC6 /* LKObjectUITests.m */; };
-		218CC4F01CB4DE58000ACC67 /* LKObject+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CC4E91CB4DE58000ACC67 /* LKObject+Categories.m */; };
+		21722B4B1D52D620005AC178 /* NSArray+LKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 21722B4A1D52D620005AC178 /* NSArray+LKObject.m */; };
+		21722B4E1D52D634005AC178 /* NSDictionary+LKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 21722B4D1D52D634005AC178 /* NSDictionary+LKObject.m */; };
 		218CC4F11CB4DE58000ACC67 /* LKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CC4EB1CB4DE58000ACC67 /* LKObject.m */; };
 		218CC4F21CB4DE58000ACC67 /* NSArray+JsonString.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CC4ED1CB4DE58000ACC67 /* NSArray+JsonString.m */; };
 		218CC4F31CB4DE58000ACC67 /* NSDictionay+JsonString.m in Sources */ = {isa = PBXBuildFile; fileRef = 218CC4EF1CB4DE58000ACC67 /* NSDictionay+JsonString.m */; };
@@ -61,8 +62,10 @@
 		212C106B1CB4DC9800BB9DC6 /* LKObjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LKObjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		212C106F1CB4DC9900BB9DC6 /* LKObjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LKObjectUITests.m; sourceTree = "<group>"; };
 		212C10711CB4DC9900BB9DC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		218CC4E81CB4DE58000ACC67 /* LKObject+Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LKObject+Categories.h"; sourceTree = "<group>"; };
-		218CC4E91CB4DE58000ACC67 /* LKObject+Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LKObject+Categories.m"; sourceTree = "<group>"; };
+		21722B491D52D620005AC178 /* NSArray+LKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LKObject.h"; sourceTree = "<group>"; };
+		21722B4A1D52D620005AC178 /* NSArray+LKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LKObject.m"; sourceTree = "<group>"; };
+		21722B4C1D52D634005AC178 /* NSDictionary+LKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LKObject.h"; sourceTree = "<group>"; };
+		21722B4D1D52D634005AC178 /* NSDictionary+LKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LKObject.m"; sourceTree = "<group>"; };
 		218CC4EA1CB4DE58000ACC67 /* LKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKObject.h; sourceTree = "<group>"; };
 		218CC4EB1CB4DE58000ACC67 /* LKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKObject.m; sourceTree = "<group>"; };
 		218CC4EC1CB4DE58000ACC67 /* NSArray+JsonString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JsonString.h"; sourceTree = "<group>"; };
@@ -182,8 +185,10 @@
 		218CC4E71CB4DE58000ACC67 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				218CC4E81CB4DE58000ACC67 /* LKObject+Categories.h */,
-				218CC4E91CB4DE58000ACC67 /* LKObject+Categories.m */,
+				21722B491D52D620005AC178 /* NSArray+LKObject.h */,
+				21722B4A1D52D620005AC178 /* NSArray+LKObject.m */,
+				21722B4C1D52D634005AC178 /* NSDictionary+LKObject.h */,
+				21722B4D1D52D634005AC178 /* NSDictionary+LKObject.m */,
 				218CC4EA1CB4DE58000ACC67 /* LKObject.h */,
 				218CC4EB1CB4DE58000ACC67 /* LKObject.m */,
 				218CC4EC1CB4DE58000ACC67 /* NSArray+JsonString.h */,
@@ -330,6 +335,7 @@
 			files = (
 				212C10521CB4DC9800BB9DC6 /* ViewController.m in Sources */,
 				212C104F1CB4DC9800BB9DC6 /* AppDelegate.m in Sources */,
+				21722B4B1D52D620005AC178 /* NSArray+LKObject.m in Sources */,
 				218CC4F11CB4DE58000ACC67 /* LKObject.m in Sources */,
 				218CC4F31CB4DE58000ACC67 /* NSDictionay+JsonString.m in Sources */,
 				218CC4F61CB50163000ACC67 /* NSString+JsonString.m in Sources */,
@@ -338,7 +344,7 @@
 				2192C4CF1CB60C40007FF663 /* NSNumber+JsonString.m in Sources */,
 				2192C4C61CB60885007FF663 /* TestObject2.m in Sources */,
 				212C104C1CB4DC9800BB9DC6 /* main.m in Sources */,
-				218CC4F01CB4DE58000ACC67 /* LKObject+Categories.m in Sources */,
+				21722B4E1D52D634005AC178 /* NSDictionary+LKObject.m in Sources */,
 				2192C4C91CB60891007FF663 /* TestObject3.m in Sources */,
 				2192C4CC1CB6089D007FF663 /* TestObject4.m in Sources */,
 			);

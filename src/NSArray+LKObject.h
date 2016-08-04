@@ -1,9 +1,9 @@
 //
-//  LKObject+Categories.h
-//  JRFitness
+//  NSArray+LKObject.h
+//  LKObject
 //
-//  Created by anjubao on 10/17/15.
-//  Copyright © 2015 com.anjubao. All rights reserved.
+//  Created by anjubao on 16/8/4.
+//  Copyright © 2016年 anjubao. All rights reserved.
 //
 
 #import "LKObject.h"
@@ -40,12 +40,5 @@
  *  @return 一个由ClassName对象构成的数组
  */
 + (instancetype)arrayWithJsonItem:(id)jsonItem objectClassName:(NSString *)className;
-
-@end
-
-
-@interface NSDictionary(LKObject)
-
-@property (nonatomic,strong,readonly) NSDictionary *descriptionDictionary;
 
 @end

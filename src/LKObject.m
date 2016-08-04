@@ -8,7 +8,8 @@
 
 #import "LKObject.h"
 #import <objc/runtime.h>
-#import "LKObject+Categories.h"
+#import "NSArray+LKObject.h"
+#import "NSDictionary+LKObject.h"
 
 @implementation LKObject
 

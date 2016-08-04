@@ -1,12 +1,13 @@
 //
-//  LKObject+Categories.m
-//  JRFitness
+//  NSArray+LKObject.m
+//  LKObject
 //
-//  Created by anjubao on 10/17/15.
-//  Copyright © 2015 com.anjubao. All rights reserved.
+//  Created by anjubao on 16/8/4.
+//  Copyright © 2016年 anjubao. All rights reserved.
 //
 
-#import "LKObject+Categories.h"
+#import "NSArray+LKObject.h"
+
 #import "NSArray+JsonString.h"
 #import "NSDictionay+JsonString.h"
 
@@ -71,29 +72,6 @@
         NSLog(@"warning: the params jsonItem is not the %@ object",[self class]);
         return nil;
     }
-}
-
-@end
-
-
-@implementation NSDictionary(LKObject)
-
-
-- (NSDictionary *)descriptionDictionary{
-    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithDictionary:self];
-    for (NSString *key in [self allKeys]) {
-        id value = [self objectForKey:key];
-        if ([value isKindOfClass:[LKObject class]]) {
-            [dictionary setObject:[value descriptionDictionary] forKey:key];
-        }
-        else if ([value isKindOfClass:[NSDictionary class]]){
-            [dictionary setObject:[value descriptionDictionary] forKey:key];
-        }
-        else if ([value isKindOfClass:[NSArray class]]){
-            [dictionary setObject:[value descriptionArray] forKey:key];
-        }
-    }
-    return dictionary;
 }
 
 @end
